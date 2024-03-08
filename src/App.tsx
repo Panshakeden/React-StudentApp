@@ -1,63 +1,66 @@
 
 
-import  { useState,useCallback } from 'react'
+import  { useState} from 'react'
 
 const App = () => {
 
+  const randomId = Math.floor(Math.random() * 20);
+
+
   const myUsers= [{
-    id: 0,
+    id: randomId,
     name: 'Johnson ',
     age: 12,
     email:'Panshak04@gmail.com'
   }, {
-    id: 1,
+    id: randomId,
     name: 'Mario',
     age: 90,
     email:'Panshak04@gmail.com'
   }, {
-    id: 2,
+    id: randomId,
     name: 'Faith',
     age: 56,
     email:'Panshak04@gmail.com'
   }, {
-    id: 3,
+    id: randomId,
     name: 'Love',
     age: 67,  
     email:'Panshak04@gmail.com'
   }, {
-    id: 4,
+    id: randomId,
     name: 'Apollo',
     age: 5,
     email:'Panshak04@gmail.com'
   }];
 
-const [User,setStudent]=useState(myUsers);
+const [student,setStudent]=useState(myUsers);
 
 
   const registerStudent = () => {
    
     setStudent([{
-   id:5,
+   id:randomId,
   name: 'Hpollo',
   age: 8,
   email:'Panshak04@gmail.com'
-}, ...User]);
+}, ...student]);
 
 
   };
 
 
-  const deleteStudent = (index: number) => {
-        const newUser = User.filter((_, id) => id !== index);
+  const deleteStudent = (randomNumber: number) => {
+        const newUser = student.filter((_, id) => id !== randomId);
         setStudent(newUser);
       };
 
       return (
         <ul>
-          {User.map((user,id) => (
+          {student.map((user,id) => (
             <li key={id}>
               <div>
-                {/* <p>id:{user.id}</p> */}
+                <p>id:{user.id}</p>
                 <p>name:{user.name}</p>
                 <p>age:{user.age}</p>
                 <p>email:{user.email}</p>
