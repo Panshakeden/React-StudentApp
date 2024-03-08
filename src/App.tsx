@@ -4,43 +4,48 @@ import  { useState} from 'react'
 
 const App = () => {
 
-  const randomId = Math.floor(Math.random() * 20);
+  // const studentId = Math.floor(Math.random() * 20);
+  function studentId() {
+    const studentIds = Math.floor(Math.random() * 20);
+    return studentIds;
+
+  }
 
 
-  const myUsers= [{
-    id: randomId,
+  const myStudents= [{
+    id: studentId(),
     name: 'Johnson ',
     age: 12,
     email:'Panshak04@gmail.com'
   }, {
-    id: randomId,
+    id: studentId(),
     name: 'Mario',
     age: 90,
     email:'Panshak04@gmail.com'
   }, {
-    id: randomId,
+    id: studentId(),
     name: 'Faith',
     age: 56,
     email:'Panshak04@gmail.com'
   }, {
-    id: randomId,
+    id: studentId(),
     name: 'Love',
     age: 67,  
     email:'Panshak04@gmail.com'
   }, {
-    id: randomId,
+    id: studentId(),
     name: 'Apollo',
     age: 5,
     email:'Panshak04@gmail.com'
   }];
 
-const [student,setStudent]=useState(myUsers);
+const [student,setStudent]=useState(myStudents);
 
 
   const registerStudent = () => {
    
     setStudent([{
-   id:randomId,
+   id:studentId() ,
   name: 'Hpollo',
   age: 8,
   email:'Panshak04@gmail.com'
@@ -50,8 +55,8 @@ const [student,setStudent]=useState(myUsers);
   };
 
 
-  const deleteStudent = (randomNumber: number) => {
-        const newUser = student.filter((_, id) => id !== randomId);
+  const deleteStudent = (studentId: number) => {
+        const newUser = student.filter((_, id) => id !== studentId);
         setStudent(newUser);
       };
 
